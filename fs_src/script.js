@@ -473,6 +473,7 @@ function wcSetConfig(c, cfg, spinner) {
       in_mode: parseInt(el(c, "in_mode").value),
       swap_inputs: el(c, "swap_inputs").checked,
       swap_outputs: el(c, "swap_outputs").checked,
+      tilt_time_ms: parseFloat(el(c, "tilt_time").value) * 1000,
     };
   }
   setComponentConfig(c, cfg, spinner);
@@ -837,6 +838,7 @@ function updateComponent(cd) {
       selectIfNotModified(el(c, "in_mode"), cd.in_mode);
       checkIfNotModified(el(c, "swap_inputs"), cd.swap_inputs);
       checkIfNotModified(el(c, "swap_outputs"), cd.swap_outputs);
+      setValueIfNotModified(el(c, "tilt_time"), cd.tilt_time_ms / 1000);
       let posText, calText;
       if (cd.cal_done == 1) {
         if (cd.cur_pos != cd.tgt_pos) {
